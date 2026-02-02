@@ -1,0 +1,89 @@
+/* =========================================
+   ESTILOS PÁGINA SERVICIOS
+   ========================================= */
+
+/* --- HERO SERVICIOS --- */
+.hero-servicios {
+    height: 350px; 
+    background-color: #003366; 
+    background-size: cover; 
+    background-position: center;
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.hero-servicios::before {
+    content: ''; 
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(180deg, rgba(0,51,102,0.7) 0%, rgba(0,51,102,0.9) 100%);
+}
+
+.hero-content { position: relative; z-index: 2; color: white; }
+.hero-title { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+
+/* --- SECCIÓN PRINCIPAL --- */
+.services-page-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.services-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 40px; /* Un poco más de espacio que en el home */
+    justify-content: center; 
+}
+
+/* --- TARJETA DE SERVICIO (VISTA DETALLADA) --- */
+.service-card { 
+    flex: 1 1 350px; /* Tarjetas un poco más anchas */
+    max-width: 450px;
+    background: #f9f9f9; 
+    padding: 50px 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-bottom: 4px solid transparent;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.service-card:hover { 
+    transform: translateY(-5px); 
+    border-bottom: 4px solid #00a8e8; 
+    background: #fff;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.service-card h3 { 
+    color: #003366; 
+    margin-bottom: 20px; 
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Botón "Más info" dentro de la tarjeta (Opcional) */
+.service-link {
+    color: #00a8e8;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 10px;
+}
+.service-link:hover { color: #003366; text-decoration: underline; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .services-grid { flex-direction: column; align-items: center; }
+    .service-card { width: 100%; }
+}

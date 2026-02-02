@@ -1,0 +1,149 @@
+/*
+Theme Name: Semin Corporate v1 
+Author: Sergio Coila
+*/
+
+/* --- 1. RESET Y BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; background-color: #fff; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Contenedor Maestro */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+
+
+/* =========================================
+   2. HEADER (SOLUCIÓN DEFINITIVA: OFFSET)
+   ========================================= */
+
+/* A. CONTENEDOR MAESTRO (EL QUE SE PEGA) */
+header.site-header { 
+    width: 100%; 
+    z-index: 1000; 
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    /* LA MAGIA: Sticky con Offset Negativo */
+    position: -webkit-sticky;
+    position: sticky; 
+    
+    /* Esto significa: "Pégate, pero esconde los primeros 46px de arriba" */
+    top: -46px; 
+}
+
+/* B. BARRA SUPERIOR (Top Bar) */
+.top-bar { 
+    background-color: #fff; 
+    color: #003366; 
+    /* Altura FORZADA para coincidir con el 'top: -46px' de arriba */
+    height: 46px; 
+    font-size: 0.9rem; 
+    border-bottom: 1px solid #f0f0f0;
+    
+    /* Flexbox para centrar contenido */
+    display: flex; 
+    align-items: center;
+}
+
+.top-bar-content { 
+    width: 100%;
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 25px; 
+}
+
+.contact-item { 
+    color: #003366; 
+    font-weight: 600; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+.contact-item:hover { color: #00a8e8; }
+
+/* C. HEADER PRINCIPAL (Menú) */
+.main-header { 
+    background: #ffffff; 
+    padding: 15px 0; 
+    display: flex; 
+    align-items: center;
+    /* Ya no necesita sticky, porque el padre se encarga */
+}
+
+.main-header-content { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+}
+
+/* D. LOGO */
+.logo h1 { font-size: 0; margin: 0; }
+
+.custom-logo-link img { 
+    max-height: 70px; 
+    width: auto; 
+    display: block;
+    margin: 0;
+}
+
+/* E. MENÚ */
+.main-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; }
+
+.main-nav a { 
+    font-weight: 700; 
+    color: #444; 
+    text-transform: uppercase; 
+    font-size: 0.9rem; 
+    letter-spacing: 0.5px; 
+    padding: 10px 0; 
+    border-bottom: 2px solid transparent; 
+    transition: 0.3s;
+}
+
+.main-nav a:hover, 
+.main-nav a.active { 
+    color: #003366; 
+    border-bottom-color: #00a8e8; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    /* En celular desactivamos el sticky para dar más espacio a la pantalla */
+    header.site-header { position: relative; top: 0; }
+    .top-bar { height: auto; padding: 5px 0; }
+    .top-bar-content { justify-content: center; }
+    .main-header-content { flex-direction: column; gap: 15px; }
+}
+
+
+
+
+/*-----------------------------------------------------------------------*/
+
+
+
+
+/* --- 3. FOOTER --- */
+footer { background: #1a1a1a; color: #ccc; padding: 50px 0 20px 0; margin-top: auto; }
+
+/* --- 4. COMPONENTES GLOBALES --- */
+.btn { display: inline-block; padding: 12px 35px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s ease; border: none; cursor: pointer; }
+.btn-primary { background-color: #ffffff; color: #003366; border: 2px solid #ffffff; }
+.btn-primary:hover { background-color: transparent; color: #ffffff; transform: translateY(-3px); }
+
+.section-title { margin-bottom: 40px; text-align: center; }
+.section-title h2 { font-size: 2.2rem; color: #003366; font-weight: 700; }
+.section-title hr { width: 50px; height: 3px; background: #00a8e8; margin: 15px auto; border: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main-header-content { flex-direction: column; gap: 10px; padding: 10px 0; }
+    .main-header { height: auto !important; position: relative; } 
+    .custom-logo-link img { height: 60px !important; margin-top: 0 !important; }
+    .top-bar-content { justify-content: center; }
+}

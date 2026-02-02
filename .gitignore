@@ -1,0 +1,18 @@
+# SO
+.DS_Store
+Thumbs.db
+
+# Node / build (si usas npm, gulp, etc.)
+node_modules/
+dist/
+.cache/
+
+# Logs
+*.log
+
+# Config local
+.env
+.env.*
+
+# Archivos generados
+*.zip
