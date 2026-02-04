@@ -6,20 +6,21 @@
 
 function semin_scripts_modular() {
     
-    // 1. CARGA DE LIBRERÍAS EXTERNAS Y GLOBAL
-    // FontAwesome (CDN)
+    // =================================================================
+    // 1. GLOBAL Y LIBRERÍAS
+    // =================================================================
+    // FontAwesome
     wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' );
     
-    // Estilo Global (style.css) - Usamos filemtime para evitar caché
+    // Style.css (Global)
     wp_enqueue_style( 'semin-global', get_stylesheet_uri(), array(), filemtime( get_template_directory() . '/style.css' ) );
 
 
-    // 2. 🧠 CARGADOR DINÁMICO DE CSS (AUTOMÁTICO)
-    // Obtiene el archivo PHP que WordPress decidió usar para esta página actual
+    // =================================================================
+    // 2. CARGADOR AUTOMÁTICO (INTELIGENTE)
+    // =================================================================
+    // Intenta adivinar el CSS basado en el nombre del archivo PHP
     global $template;
-
-    // A. LÓGICA AUTOMÁTICA (Basada en nombre de archivo)
-    // Ej: si usa 'page-servicios.php' -> busca 'css/page-servicios.css'
     $nombre_plantilla = basename( $template, '.php' );
     $ruta_relativa_css = '/css/' . $nombre_plantilla . '.css';
     $ruta_absoluta_css = get_template_directory() . $ruta_relativa_css;
@@ -29,25 +30,50 @@ function semin_scripts_modular() {
             'css-auto-' . $nombre_plantilla, 
             get_template_directory_uri() . $ruta_relativa_css, 
             array('semin-global'), 
-            filemtime( $ruta_absoluta_css ) // ¡Versión dinámica basada en fecha de modificación!
+            filemtime( $ruta_absoluta_css ) 
         );
     }
 
-    // B. LÓGICA MANUAL / EXCEPCIONES (Opcional pero recomendada)
-    // Si entras a un "Servicio Individual" (CPT), queremos que use el CSS de la página de Servicios
-    if ( is_singular('servicio') ) {
+
+    // =================================================================
+    // 3. CARGADOR MANUAL (SEGURIDAD / EXCEPCIONES)
+    // =================================================================
+    // Aquí forzamos la carga para asegurar que no fallen las páginas críticas
+    
+    // A. SERVICIOS (Página Principal + Detalle Individual CPT)
+    if ( is_page('servicios') || is_page_template('page-servicios.php') || is_singular('servicio') ) {
         wp_enqueue_style( 
             'css-page-servicios', 
             get_template_directory_uri() . '/css/page-servicios.css', 
             array('semin-global'), 
-            '1.0' 
+            filemtime( get_template_directory() . '/css/page-servicios.css' ) 
+        );
+    }
+
+    // B. NOSOTROS (Nueva)
+    if ( is_page('nosotros') || is_page_template('page-nosotros.php') ) {
+        wp_enqueue_style( 
+            'css-page-nosotros', 
+            get_template_directory_uri() . '/css/page-nosotros.css', 
+            array('semin-global'), 
+            filemtime( get_template_directory() . '/css/page-nosotros.css' ) 
+        );
+    }
+
+    // C. CONTACTO (Nueva)
+    if ( is_page('contacto') || is_page_template('page-contacto.php') ) {
+        wp_enqueue_style( 
+            'css-page-contacto', 
+            get_template_directory_uri() . '/css/page-contacto.css', 
+            array('semin-global'), 
+            filemtime( get_template_directory() . '/css/page-contacto.css' ) 
         );
     }
 }
 add_action( 'wp_enqueue_scripts', 'semin_scripts_modular' );
 
 
-// 3. SOPORTES DEL TEMA
+// 4. SOPORTES DEL TEMA
 function semin_theme_support() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
