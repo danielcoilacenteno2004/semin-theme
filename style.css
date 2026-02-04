@@ -1,149 +1,262 @@
 /*
 Theme Name: Semin Corporate v1 
 Author: Sergio Coila
+Description: Tema corporativo industrial limpio y modular.
+Version: 1.1
 */
 
-/* --- 1. RESET Y BASE --- */
+/* =========================================
+   0. VARIABLES & CONFIGURACIÓN
+   ========================================= */
+:root {
+    /* Paleta de Colores */
+    --color-primary: #003366;  /* Azul Semin Oscuro */
+    --color-accent:  #00a8e8;  /* Cyan Semin */
+    --color-text:    #333333;  /* Texto General */
+    --color-light:   #f4f8fb;  /* Fondos Suaves */
+    --color-white:   #ffffff;
+    
+    /* Dimensiones Estructurales */
+    --top-bar-height: 46px;    /* Altura fija de la barra superior */
+    --container-width: 1200px;
+}
+
+/* =========================================
+   1. RESET & BASE
+   ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; background-color: #fff; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: var(--color-text); 
+    line-height: 1.6; 
+    background-color: var(--color-white); 
+    -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
 
 /* Contenedor Maestro */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-
-
+.container { 
+    max-width: var(--container-width); 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    width: 100%;
+}
 
 /* =========================================
-   2. HEADER (SOLUCIÓN DEFINITIVA: OFFSET)
+   2. HEADER (LÓGICA STICKY + OFFSET)
    ========================================= */
 
-/* A. CONTENEDOR MAESTRO (EL QUE SE PEGA) */
+/* A. EL CONTENEDOR PRINCIPAL */
 header.site-header { 
     width: 100%; 
     z-index: 1000; 
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background: var(--color-white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 
-    /* LA MAGIA: Sticky con Offset Negativo */
+    /* TRUCO: Sticky con Offset Negativo */
     position: -webkit-sticky;
     position: sticky; 
-    
-    /* Esto significa: "Pégate, pero esconde los primeros 46px de arriba" */
-    top: -46px; 
+    /* Ocultamos la barra superior al hacer scroll */
+    top: calc(var(--top-bar-height) * -1); 
 }
 
-/* B. BARRA SUPERIOR (Top Bar) */
+/* =========================================
+   B. BARRA SUPERIOR (Top Bar) - CORREGIDO V2
+   ========================================= */
 .top-bar { 
-    background-color: #fff; 
-    color: #003366; 
-    /* Altura FORZADA para coincidir con el 'top: -46px' de arriba */
+    background-color: var(--color-white); 
     height: 46px; 
-    font-size: 0.9rem; 
     border-bottom: 1px solid #f0f0f0;
-    
-    /* Flexbox para centrar contenido */
-    display: flex; 
-    align-items: center;
+    width: 100%;
+    z-index: 1001; /* Asegura que esté encima */
+    position: relative;
 }
 
 .top-bar-content { 
-    width: 100%;
-    display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
-    gap: 25px; 
+    height: 100%; 
+    display: flex !important;
+    flex-direction: row !important;
+    
+    /* CAMBIO CLAVE: Manda todo el contenido a la derecha */
+    justify-content: flex-end !important; 
+    
+    align-items: center !important;
+    
+    /* Agregamos un espacio para separar el bloque de contacto del de redes */
+    gap: 30px; 
+}
+
+/* --- GRUPO IZQUIERDO: CONTACTO --- */
+.top-left-group {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
 }
 
 .contact-item { 
-    color: #003366; 
+    color: var(--color-primary); /* Color Azul Oscuro por defecto (Texto) */
+    font-size: 0.9rem;
     font-weight: 600; 
     display: flex; 
     align-items: center; 
     gap: 8px; 
+    text-decoration: none;
+    line-height: 1;
+    transition: all 0.3s ease; /* Suaviza el cambio de color */
 }
-.contact-item:hover { color: #00a8e8; }
 
-/* C. HEADER PRINCIPAL (Menú) */
-.main-header { 
-    background: #ffffff; 
-    padding: 15px 0; 
-    display: flex; 
+/* EL CAMBIO CLAVE AQUÍ: */
+/* El ícono hereda el color del padre (Azul Oscuro), no se fuerza a celeste */
+.contact-item i { 
+    color: inherit; /* Hereda el color del texto */
+    font-size: 1.1em;
+    transition: inherit; /* Se mueve junto con el texto */
+}
+
+/* EFECTO HOVER (Al pasar el mouse) */
+.contact-item:hover { 
+    color: var(--color-accent); /* Texto cambia a Celeste */
+}
+
+/* El ícono cambia automáticamente porque tiene color: inherit */
+
+/* --- GRUPO DERECHO: REDES --- */
+.top-right-group {
+    display: flex;
     align-items: center;
-    /* Ya no necesita sticky, porque el padre se encarga */
+    gap: 15px;
+    padding-left: 20px;
+    border-left: 1px solid #eee; /* Línea separadora */
+    height: 24px; /* Altura de la línea */
+}
+
+.social-icon {
+    color: #888; 
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+.social-icon:hover { color: var(--color-primary); }
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 900px) {
+    .top-bar { height: auto; padding: 10px 0; }
+    .top-bar-content { flex-direction: column !important; gap: 10px; }
+    .top-left-group { flex-direction: column; gap: 8px; }
+    .top-right-group { border-left: none; padding-left: 0; margin-top: 5px; }
+}
+
+/* C. HEADER PRINCIPAL (Menú + Logo) */
+.main-header { 
+    background: var(--color-white); 
+    padding: 15px 0; 
 }
 
 .main-header-content { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    width: 100%;
 }
 
 /* D. LOGO */
 .logo h1 { font-size: 0; margin: 0; }
-
 .custom-logo-link img { 
-    max-height: 70px; 
+    max-height: 65px; 
     width: auto; 
-    display: block;
-    margin: 0;
 }
 
-/* E. MENÚ */
+/* E. NAVEGACIÓN */
 .main-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; }
 
 .main-nav a { 
     font-weight: 700; 
     color: #444; 
     text-transform: uppercase; 
-    font-size: 0.9rem; 
+    font-size: 0.85rem; 
     letter-spacing: 0.5px; 
     padding: 10px 0; 
     border-bottom: 2px solid transparent; 
-    transition: 0.3s;
 }
 
 .main-nav a:hover, 
 .main-nav a.active { 
-    color: #003366; 
-    border-bottom-color: #00a8e8; 
+    color: var(--color-primary); 
+    border-bottom-color: var(--color-accent); 
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    /* En celular desactivamos el sticky para dar más espacio a la pantalla */
+/* =========================================
+   3. FOOTER
+   ========================================= */
+footer { 
+    background: #1a1a1a; 
+    color: #ccc; 
+    padding: 60px 0 20px; 
+    margin-top: auto; 
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   4. COMPONENTES GLOBALES (UI KIT)
+   ========================================= */
+
+/* Botones */
+.btn { 
+    display: inline-block; 
+    padding: 12px 35px; 
+    border-radius: 4px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 0.9rem; 
+    letter-spacing: 1px; 
+    border: none; 
+    cursor: pointer; 
+    text-align: center;
+}
+
+.btn-primary { 
+    background-color: var(--color-white); 
+    color: var(--color-primary); 
+    border: 2px solid var(--color-white); 
+}
+.btn-primary:hover { 
+    background-color: transparent; 
+    color: var(--color-white); 
+    transform: translateY(-3px); 
+}
+
+/* Títulos de Sección */
+.section-title { margin-bottom: 45px; text-align: center; }
+.section-title h2 { font-size: 2.2rem; color: var(--color-primary); font-weight: 800; margin-bottom: 10px; }
+.section-title hr { width: 60px; height: 4px; background: var(--color-accent); margin: 0 auto; border: none; border-radius: 2px; }
+
+
+/* =========================================
+   5. RESPONSIVE (MÓVIL)
+   ========================================= */
+@media (max-width: 991px) {
+    
+    /* Desactivar Sticky en móvil para ganar espacio */
     header.site-header { position: relative; top: 0; }
-    .top-bar { height: auto; padding: 5px 0; }
-    .top-bar-content { justify-content: center; }
-    .main-header-content { flex-direction: column; gap: 15px; }
-}
 
-
-
-
-/*-----------------------------------------------------------------------*/
-
-
-
-
-/* --- 3. FOOTER --- */
-footer { background: #1a1a1a; color: #ccc; padding: 50px 0 20px 0; margin-top: auto; }
-
-/* --- 4. COMPONENTES GLOBALES --- */
-.btn { display: inline-block; padding: 12px 35px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s ease; border: none; cursor: pointer; }
-.btn-primary { background-color: #ffffff; color: #003366; border: 2px solid #ffffff; }
-.btn-primary:hover { background-color: transparent; color: #ffffff; transform: translateY(-3px); }
-
-.section-title { margin-bottom: 40px; text-align: center; }
-.section-title h2 { font-size: 2.2rem; color: #003366; font-weight: 700; }
-.section-title hr { width: 50px; height: 3px; background: #00a8e8; margin: 15px auto; border: none; }
-
-/* Responsive */
-@media (max-width: 900px) {
-    .main-header-content { flex-direction: column; gap: 10px; padding: 10px 0; }
-    .main-header { height: auto !important; position: relative; } 
-    .custom-logo-link img { height: 60px !important; margin-top: 0 !important; }
-    .top-bar-content { justify-content: center; }
+    /* Barra Superior apilada */
+    .top-bar { height: auto; padding: 10px 0; }
+    .top-bar-content { flex-direction: column; gap: 10px; }
+    .top-social-group { border-left: none; padding-left: 0; }
+    
+    /* Header Principal */
+    .main-header { padding: 15px 0; }
+    .main-header-content { flex-direction: column; gap: 20px; }
+    
+    /* Menú en móvil (Básico - Idealmente usarías JS para un menú hamburguesa) */
+    .main-nav ul { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: center; 
+        text-align: center;
+    }
 }

@@ -100,7 +100,7 @@ if ( $bg_image_url ) {
 </section>
 
 
-<section id="servicios" class="services-section">
+<section id="servicios" class="services-section section-padding">
     <div class="container">
         <div class="section-title">
             <h2><?php echo esc_html(get_theme_mod('home_sol_title', 'Nuestras Soluciones')); ?></h2>
@@ -108,29 +108,39 @@ if ( $bg_image_url ) {
             <p><?php echo esc_html(get_theme_mod('home_sol_subtitle', 'Cubrimos todo el ciclo de vida de su proyecto energético.')); ?></p>
         </div>
         
-        <div class="services-grid">
-            
-            <div class="service-card">
-                <h3><?php echo esc_html(get_theme_mod('home_s1_title', 'Venta de Grupos')); ?></h3>
-                <p><?php echo esc_html(get_theme_mod('home_s1_desc', 'Equipos encapsulados y abiertos para prime y standby.')); ?></p>
-            </div>
-            
-            <div class="service-card">
-                <h3><?php echo esc_html(get_theme_mod('home_s2_title', 'Alquiler de Flota')); ?></h3>
-                <p><?php echo esc_html(get_theme_mod('home_s2_desc', 'Alquiler de generadores por horas, días o meses.')); ?></p>
-            </div>
-            
-            <div class="service-card">
-                <h3><?php echo esc_html(get_theme_mod('home_s3_title', 'Mantenimiento')); ?></h3>
-                <p><?php echo esc_html(get_theme_mod('home_s3_desc', 'Servicio preventivo y correctivo (Overhaul).')); ?></p>
-            </div>
-            
-            <div class="service-card">
-                <h3><?php echo esc_html(get_theme_mod('home_s4_title', 'Tableros y Automatización')); ?></h3>
-                <p><?php echo esc_html(get_theme_mod('home_s4_desc', 'Fabricación de Tableros de Transferencia (TTA).')); ?></p>
-            </div>
+        <div class="grid-servicios"> <?php
+            // 1. Configurar la consulta
+            $args = array(
+                'post_type'      => 'servicio',
+                'posts_per_page' => 4,     // Muestra solo los 4 primeros en Inicio
+                'orderby'        => 'menu_order', // Respeta el orden manual (1,2,3...)
+                'order'          => 'ASC'
+            );
+            $servicios_query = new WP_Query($args);
+
+            // 2. El Bucle
+            if ($servicios_query->have_posts()) :
+                while ($servicios_query->have_posts()) : $servicios_query->the_post();
+                    
+                    // Carga la plantilla 'content-servicio.php' para cada ítem
+                    get_template_part('template-parts/content-servicio');
+
+                endwhile;
+                wp_reset_postdata(); // 3. Limpieza obligatoria
+            else:
+                // Mensaje si no hay servicios creados aún
+                if ( current_user_can('edit_theme_options') ) {
+                    echo '<p style="text-align:center; width:100%; color:#888;">⚠️ No hay servicios creados. Ve al panel de admin > Servicios y añade algunos.</p>';
+                }
+            endif;
+            ?>
             
         </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="<?php echo home_url('/servicios'); ?>" class="btn btn-primary">VER TODOS LOS SERVICIOS</a>
+        </div>
+
     </div>
 </section>
 
