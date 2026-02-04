@@ -105,7 +105,7 @@ if ( $bg_image_url ) {
         <div class="section-title">
             <h2><?php echo esc_html(get_theme_mod('home_sol_title', 'Nuestras Soluciones')); ?></h2>
             <hr>
-            <p><?php echo esc_html(get_theme_mod('home_sol_subtitle', 'Cubrimos todo el ciclo de vida de su proyecto energético.')); ?></p>
+            <p><?php echo esc_html(get_theme_mod('home_sol_subtitle', 'Tecnología y experiencia para mantener su industria en movimiento, sin interrupciones.')); ?></p>
         </div>
         
         <div class="grid-servicios"> <?php

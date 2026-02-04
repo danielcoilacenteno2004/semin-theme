@@ -134,18 +134,18 @@ function semin_customize_home($wp_customize) {
         'label' => 'Título Sección', 'section' => 'semin_home_solutions', 'settings' => 'home_sol_title', 'type' => 'text'
     ));
     
-    // Bucle Servicios Home
-    for ($k = 1; $k <= 4; $k++) {
-        $wp_customize->add_setting("home_s{$k}_title", array('default' => "Servicio $k"));
-        $wp_customize->add_control("home_s{$k}_title_ctrl", array(
-            'label' => "Título Servicio $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_title", 'type' => 'text'
-        ));
+    // // Bucle Servicios Home
+    // for ($k = 1; $k <= 4; $k++) {
+    //     $wp_customize->add_setting("home_s{$k}_title", array('default' => "Servicio $k"));
+    //     $wp_customize->add_control("home_s{$k}_title_ctrl", array(
+    //         'label' => "Título Servicio $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_title", 'type' => 'text'
+    //     ));
 
-        $wp_customize->add_setting("home_s{$k}_desc", array('default' => 'Descripción...'));
-        $wp_customize->add_control("home_s{$k}_desc_ctrl", array(
-            'label' => "Descripción $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_desc", 'type' => 'textarea'
-        ));
-    }
+    //     $wp_customize->add_setting("home_s{$k}_desc", array('default' => 'Descripción...'));
+    //     $wp_customize->add_control("home_s{$k}_desc_ctrl", array(
+    //         'label' => "Descripción $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_desc", 'type' => 'textarea'
+    //     ));
+    // }
 
 
     // =================================================================
