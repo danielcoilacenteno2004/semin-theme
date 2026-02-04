@@ -72,7 +72,7 @@
 
                     <li>
                         <a href="<?php echo home_url('/venta-de-grupos'); ?>" class="<?php echo is_page_template('page-grupos.php') ? 'active' : ''; ?>">
-                            Venta Grupos
+                            Venta de Grupos
                         </a>
                     </li>
 
