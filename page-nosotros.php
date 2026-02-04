@@ -172,13 +172,14 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
                     <h3>Misión</h3>
                     <p>Garantizar la continuidad operativa de nuestros clientes mediante ingeniería de precisión, seguridad (HSE) y respuesta inmediata.</p>
                 </div>
-                <div class="mv-block" style="border:none; padding-left:0;">
+                <!--DESCOMENTAR SI SE DESEA AGREGAR CIERTAS CERTIFICACIONES -->
+                <!-- <div class="mv-block" style="border:none; padding-left:0;">
                     <div class="policy-tags">
                         <span><i class="fas fa-hard-hat"></i> Seguridad</span>
                         <span><i class="fas fa-check"></i> Calidad ISO</span>
                         <span><i class="fas fa-leaf"></i> Ambiente</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
