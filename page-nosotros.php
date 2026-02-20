@@ -29,8 +29,8 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
                 <h4 style="color:#00a8e8; font-weight:700; letter-spacing:1px; margin-bottom:10px;">NUESTRA TRAYECTORIA</h4>
                 <h2 class="modasa-title">Más de 30 años de <br><span class="text-cyan">Innovación y Energía</span></h2>
                 <div class="modasa-line"></div>
-                <p>SEMIN S.R.L. inició sus actividades respondiendo a la demanda crítica del sector minero en el sur del Perú. Nos especializamos en la <strong>ingeniería de detalle</strong> que mantiene a la industria en movimiento.</p>
-                <p>Hemos consolidado alianzas estratégicas que nos permiten ofrecer soporte certificado para marcas globales como Cummins y Perkins en geografías complejas.</p>
+                <p>Nacimos en Arequipa para responder a la demanda crítica de energía en la minería y gran industria. Hoy, SEMIN S.R.L. es sinónimo de continuidad operativa, especializándonos en Ingeniería de Detalle, Automatización y Mantenimiento de Activos de Generación.</p>
+                <p>Nuestra capacidad técnica nos permite ejecutar desde el reflotamiento de grupos electrógenos de alta potencia (hasta 5 MW) hasta la fabricación de tableros de transferencia (TTA) y sincronismo. Mantenemos una cadena de suministro robusta con marcas líderes como Cummins, Perkins y Volvo, garantizando repuestos genuinos y soporte certificado allí donde otros no llegan.</p>
                 
                 <a href="<?php echo home_url('/contacto'); ?>" class="btn-modasa-blue">SOLICITAR ASESORÍA &rarr;</a>
             </div>
@@ -46,12 +46,18 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
         <div class="split-content">
             <div class="content-wrapper">
                 <div class="mv-block">
-                    <h3>Visión Corporativa</h3>
-                    <p>Ser la referencia técnica indiscutible en el sur del Perú para soluciones de energía crítica y electromecánica al 2030.</p>
+                    <h3>Visión</h3>
+                    <p>Ser líderes en el mercado peruano de
+                        energía industrial, reconocidos por la
+                        excelencia de nuestros servicios y la
+                        satisfacción de nuestros clientes.</p>
                 </div>
                 <div class="mv-block">
                     <h3>Misión</h3>
-                    <p>Garantizar la continuidad operativa de nuestros clientes mediante ingeniería de precisión, seguridad (HSE) y respuesta inmediata.</p>
+                    <p>Ofrecer soluciones energéticas a
+                        nuestros clientes, brindándoles un
+                        servicio de respaldo energético
+                        confiable y de alta calidad.</p>
                 </div>
                 </div>
         </div>
