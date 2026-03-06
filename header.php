@@ -9,44 +9,15 @@
 
 <header class="site-header">
 
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            
-            <?php 
-            // 1. OBTENER DATOS DEL PERSONALIZADOR
-            $email_txt  = get_theme_mod('contact_email_text', 'ventas@semin.pe');
-            $email_link = get_theme_mod('contact_email_link', 'mailto:ventas@semin.pe');
-            $phone_txt  = get_theme_mod('contact_phone_text', '923 494 455');
-            $phone_link = get_theme_mod('contact_phone_link', 'https://wa.me/51923494455');
-            $fb_url     = get_theme_mod('social_facebook');
-            $li_url     = get_theme_mod('social_linkedin');
-            ?>
-
-            <div class="top-left-group">
-                <a href="<?php echo esc_url($email_link); ?>" class="contact-item">
-                    <i class="fas fa-envelope"></i> <?php echo esc_html($email_txt); ?>
-                </a>
-                <a href="<?php echo esc_url($phone_link); ?>" class="contact-item" target="_blank">
-                    <i class="fab fa-whatsapp"></i> <?php echo esc_html($phone_txt); ?>
-                </a>
-            </div>
-
-            <div class="top-right-group">
-                <?php if ( !empty($fb_url) && $fb_url !== '#' ) : ?>
-                    <a href="<?php echo esc_url($fb_url); ?>" target="_blank" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                <?php endif; ?>
-
-                <?php if ( !empty($li_url) && $li_url !== '#' ) : ?>
-                    <a href="<?php echo esc_url($li_url); ?>" target="_blank" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                <?php endif; ?>
-            </div>
-
-        </div>
-    </div>
+    <?php 
+    // 1. OBTENER DATOS DEL PERSONALIZADOR
+    $email_txt  = get_theme_mod('contact_email_text', 'ventas@semin.pe');
+    $email_link = get_theme_mod('contact_email_link', 'mailto:ventas@semin.pe');
+    $phone_txt  = get_theme_mod('contact_phone_text', '923 494 455');
+    $phone_link = get_theme_mod('contact_phone_link', 'https://wa.me/51923494455');
+    $fb_url     = get_theme_mod('social_facebook');
+    $li_url     = get_theme_mod('social_linkedin');
+    ?>
 
     <div class="main-header">
         <div class="container main-header-content">
@@ -70,6 +41,30 @@
                     <li><a href="<?php echo home_url('/contacto'); ?>" class="<?php echo is_page('contacto') ? 'active' : ''; ?>">Contacto</a></li>
                 </ul>
             </nav>
+
+            <div class="header-icons">
+                <a href="<?php echo esc_url($email_link); ?>" class="icon-link" aria-label="Enviar correo">
+                    <i class="fas fa-envelope"></i>
+                    <span class="sr-only"><?php echo esc_html($email_txt); ?></span>
+                </a>
+
+                <a href="<?php echo esc_url($phone_link); ?>" class="icon-link" aria-label="WhatsApp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="sr-only"><?php echo esc_html($phone_txt); ?></span>
+                </a>
+
+                <?php if ( !empty($fb_url) && $fb_url !== '#' ) : ?>
+                    <a href="<?php echo esc_url($fb_url); ?>" target="_blank" class="icon-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ( !empty($li_url) && $li_url !== '#' ) : ?>
+                    <a href="<?php echo esc_url($li_url); ?>" target="_blank" class="icon-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </header>

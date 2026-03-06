@@ -149,6 +149,12 @@ header.site-header {
     .top-bar-content { flex-direction: column !important; gap: 10px; }
     .top-left-group { flex-direction: column; gap: 8px; }
     .top-right-group { border-left: none; padding-left: 0; margin-top: 5px; }
+
+    /* Header principal: centrar y apilar cuando sea necesario */
+    .main-header-content { justify-content: center; gap: 12px; }
+    .main-header-content .main-nav { order: 2; width: 100%; }
+    .main-header-content .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .header-icons { order: 1; margin-left: 0; padding-left: 0; border-left: none; }
 }
 
 /* C. HEADER PRINCIPAL (Menú + Logo) */
@@ -161,6 +167,47 @@ header.site-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+/* Íconos de contacto (Correo, WhatsApp, RRSS) */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: 24px; /* Separador visual entre menú y redes */
+    padding-left: 24px;
+    border-left: 1px solid rgba(0,0,0,0.12);
+}
+
+.icon-link {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.icon-link:hover {
+    background: rgba(0, 51, 102, 0.08);
+    color: var(--color-accent);
+}
+
+/* Utilidad accesible para texto oculto visualmente */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 /* D. LOGO */
@@ -171,6 +218,9 @@ header.site-header {
 }
 
 /* E. NAVEGACIÓN */
+.main-nav {
+    margin-left: auto; /* Empuja el menú hacia la derecha */
+}
 .main-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; }
 
 .main-nav a { 
