@@ -100,47 +100,30 @@ if ( $bg_image_url ) {
 </section>
 
 
-<section id="servicios" class="services-section section-padding">
+<section id="servicios" class="services-banner-section">
     <div class="container">
-        <div class="section-title">
-            <h2><?php echo esc_html(get_theme_mod('home_sol_title', 'Nuestras Soluciones')); ?></h2>
-            <hr>
-            <p><?php echo esc_html(get_theme_mod('home_sol_subtitle', 'Tecnología y experiencia para mantener su industria en movimiento, sin interrupciones.')); ?></p>
-        </div>
+        <?php 
+        // Preparamos la variable para la imagen de fondo (luego la conectaremos al Personalizador)
+        $banner_img = get_theme_mod('home_servicios_banner_img', get_template_directory_uri() . '/img/placeholder-banner.jpg'); 
+        ?>
         
-        <div class="grid-servicios"> <?php
-            // 1. Configurar la consulta
-            $args = array(
-                'post_type'      => 'servicio',
-                'posts_per_page' => 4,     // Muestra solo los 4 primeros en Inicio
-                'orderby'        => 'menu_order', // Respeta el orden manual (1,2,3...)
-                'order'          => 'ASC'
-            );
-            $servicios_query = new WP_Query($args);
-
-            // 2. El Bucle
-            if ($servicios_query->have_posts()) :
-                while ($servicios_query->have_posts()) : $servicios_query->the_post();
+        <div class="cummins-banner-wrapper" style="background-image: url('<?php echo esc_url($banner_img); ?>');">
+            
+            <div class="cummins-banner-overlay">
+                <div class="cummins-banner-content">
                     
-                    // Carga la plantilla 'content-servicio.php' para cada ítem
-                    get_template_part('template-parts/content-servicio');
-
-                endwhile;
-                wp_reset_postdata(); // 3. Limpieza obligatoria
-            else:
-                // Mensaje si no hay servicios creados aún
-                if ( current_user_can('edit_theme_options') ) {
-                    echo '<p style="text-align:center; width:100%; color:#888;">⚠️ No hay servicios creados. Ve al panel de admin > Servicios y añade algunos.</p>';
-                }
-            endif;
-            ?>
+                    <h2><?php echo esc_html(get_theme_mod('home_sol_title', 'UN EQUIPO CAPACITADO PARA BRINDAR LA MEJOR ATENCIÓN A NUESTROS CLIENTES')); ?></h2>
+                    
+                    <p><?php echo esc_html(get_theme_mod('home_sol_subtitle', 'En SEMIN S.R.L., sabemos lo importante que es la operatividad de sus equipos, por ello, contamos con servicios con calidad y confianza a la medida de sus necesidades.')); ?></p>
+                    
+                    <a href="<?php echo home_url('/servicios'); ?>" class="btn-cummins-style">
+                        <i class="fas fa-chevron-circle-right"></i> Ver Servicios
+                    </a>
+                    
+                </div>
+            </div>
             
         </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="<?php echo home_url('/servicios'); ?>" class="btn btn-primary">VER TODOS LOS SERVICIOS</a>
-        </div>
-
     </div>
 </section>
 

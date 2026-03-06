@@ -120,32 +120,50 @@ function semin_customize_home($wp_customize) {
     )));
 
 
-    // =================================================================
-    // 4. SECCIÓN: SOLUCIONES (HOME)
+// =================================================================
+    // 4. SECCIÓN: BANNER DE SERVICIOS (HOME)
     // =================================================================
     $wp_customize->add_section('semin_home_solutions', array(
-        'title'    => '4. Nuestras Soluciones (Home)',
+        'title'    => '4. Banner de Servicios',
         'panel'    => 'semin_panel_home', // <--- Asignado al Panel Home
         'priority' => 40,
     ));
 
-    $wp_customize->add_setting('home_sol_title', array('default' => 'Nuestras Soluciones'));
-    $wp_customize->add_control('home_sol_title_ctrl', array(
-        'label' => 'Título Sección', 'section' => 'semin_home_solutions', 'settings' => 'home_sol_title', 'type' => 'text'
+    // 4.1 Título del Banner
+    $wp_customize->add_setting('home_sol_title', array(
+        'default'   => 'UN EQUIPO CAPACITADO PARA BRINDAR LA MEJOR ATENCIÓN', 
+        'transport' => 'refresh'
     ));
-    
-    // // Bucle Servicios Home
-    // for ($k = 1; $k <= 4; $k++) {
-    //     $wp_customize->add_setting("home_s{$k}_title", array('default' => "Servicio $k"));
-    //     $wp_customize->add_control("home_s{$k}_title_ctrl", array(
-    //         'label' => "Título Servicio $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_title", 'type' => 'text'
-    //     ));
+    $wp_customize->add_control('home_sol_title_ctrl', array(
+        'label'    => 'Título del Banner', 
+        'section'  => 'semin_home_solutions', 
+        'settings' => 'home_sol_title', 
+        'type'     => 'text'
+    ));
 
-    //     $wp_customize->add_setting("home_s{$k}_desc", array('default' => 'Descripción...'));
-    //     $wp_customize->add_control("home_s{$k}_desc_ctrl", array(
-    //         'label' => "Descripción $k", 'section' => 'semin_home_solutions', 'settings' => "home_s{$k}_desc", 'type' => 'textarea'
-    //     ));
-    // }
+    // 4.2 Subtítulo / Descripción
+    $wp_customize->add_setting('home_sol_subtitle', array(
+        'default'   => 'En SEMIN S.R.L., sabemos lo importante que es la operatividad de sus equipos, por ello, contamos con servicios con calidad y confianza a la medida de sus necesidades.', 
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control('home_sol_subtitle_ctrl', array(
+        'label'    => 'Texto Descriptivo', 
+        'section'  => 'semin_home_solutions', 
+        'settings' => 'home_sol_subtitle', 
+        'type'     => 'textarea'
+    ));
+
+    // 4.3 Imagen de Fondo del Banner
+    $wp_customize->add_setting('home_servicios_banner_img', array(
+        'default'   => '', 
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'home_servicios_banner_img_ctrl', array(
+        'label'       => 'Imagen de Fondo (Banner)',
+        'description' => 'Sube una imagen apaisada (horizontal). Recomendado: Foto de técnicos trabajando o maquinaria industrial en alta calidad.',
+        'section'     => 'semin_home_solutions',
+        'settings'    => 'home_servicios_banner_img'
+    )));
 
 
     // =================================================================
