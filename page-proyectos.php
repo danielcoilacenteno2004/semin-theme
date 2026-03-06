@@ -93,7 +93,7 @@ $hero_bg = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Imagen destacada
     }
     .hero-overlay {
         position: absolute; top:0; left:0; width:100%; height:100%;
-        background: linear-gradient(180deg, rgba(0,51,102,0.7) 0%, rgba(0,51,102,0.9) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%);
         display: flex; align-items: center; justify-content: center;
     }
     .hero-title { font-size: 3rem; font-weight: 800; color: white; margin-bottom: 10px; }
@@ -132,8 +132,8 @@ $hero_bg = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Imagen destacada
         position: absolute; bottom: 0; left: 0; width: 100%;
         
         /* 1. Degradado MUY ALTO y suave que no cambia de color */
-        /* Va de azul oscuro abajo a transparente arriba */
-        background: linear-gradient(to top, rgba(0,51,102,1) 0%, rgba(0,51,102,0.8) 40%, transparent 100%);
+        /* Va de negro abajo a transparente arriba */
+        background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, transparent 100%);
         
         padding: 40px 25px 25px; /* Espacio interno */
         display: flex; flex-direction: column; justify-content: flex-end;
@@ -194,7 +194,7 @@ $hero_bg = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Imagen destacada
     @media (max-width: 768px) {
         .projects-grid { grid-template-columns: 1fr; }
         .hero-title { font-size: 2.5rem; }
-        .proj-overlay { transform: translateY(0); background: linear-gradient(to top, rgba(0,51,102,1) 0%, rgba(0,51,102,0.9) 60%, transparent 100%); }
+        .proj-overlay { transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 60%, transparent 100%); }
         .proj-desc, .proj-link { opacity: 1; }
     }
 </style>

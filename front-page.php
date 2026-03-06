@@ -7,7 +7,7 @@ get_header();
 $about_img = get_theme_mod('home_about_img', get_template_directory_uri() . '/img/semin-taller-principal.jpg');
 
 // B. Imagen de Fondo Hero (Portada)
-$filtro_azul = 'linear-gradient(rgba(0,68,129,0.7), rgba(0,40,80,0.8))';
+$filtro_azul = 'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85))';
 $bg_image_url = get_theme_mod('hero_imagen_fondo');
 
 if ( $bg_image_url ) {

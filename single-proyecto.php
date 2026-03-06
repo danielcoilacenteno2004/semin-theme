@@ -49,7 +49,7 @@
     }
     .project-hero-overlay {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(0deg, #003366 0%, rgba(0,51,102,0.4) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
         display: flex; align-items: flex-end; padding-bottom: 60px;
     }
     .hero-tag {
