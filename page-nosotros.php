@@ -97,6 +97,39 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
         </div>
     </section>
 
+    <section class="section-pro clientes-nosotros">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="modasa-title">Nuestros Clientes</h2>
+                <p style="color: #666; font-size: 1.1rem; margin-top: 15px;">Empresas de confianza que han trabajado con nosotros</p>
+            </div>
+            
+            <div class="clientes-grid-nosotros">
+                <?php 
+                $clientes = get_theme_mod('semin_clientes_nosotros', array());
+                
+                if (!empty($clientes) && is_array($clientes)) {
+                    foreach ($clientes as $cliente) {
+                        if (!empty($cliente['nombre'])) {
+                            echo '<div class="cliente-card-nosotros">';
+                            
+                            if (!empty($cliente['logo'])) {
+                                echo '<img src="' . esc_url($cliente['logo']) . '" alt="' . esc_attr($cliente['nombre']) . '" class="cliente-logo-nosotros">';
+                            } else {
+                                echo '<div class="cliente-placeholder-nosotros">' . esc_html(substr($cliente['nombre'], 0, 2)) . '</div>';
+                            }
+                            
+                            echo '</div>';
+                        }
+                    }
+                } else {
+                    echo '<p style="text-align: center; width: 100%; color: #999; grid-column: 1/-1;">Aún no hay clientes agregados.</p>';
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>
