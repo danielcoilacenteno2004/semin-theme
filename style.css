@@ -5,6 +5,9 @@ Description: Tema corporativo industrial limpio y modular.
 Version: 1.1
 */
 
+/* Google Font: Montserrat (Light + Semibold) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap');
+
 /* =========================================
    0. VARIABLES & CONFIGURACIÓN
    ========================================= */
@@ -18,7 +21,7 @@ Version: 1.1
     
     /* Dimensiones Estructurales */
     --top-bar-height: 46px;    /* Altura fija de la barra superior */
-    --container-width: 1200px;
+    --container-width: 1440px;
 }
 
 /* =========================================
@@ -27,11 +30,33 @@ Version: 1.1
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300; /* Light */
     color: var(--color-text); 
     line-height: 1.6; 
     background-color: var(--color-white); 
     -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografías principales */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Semibold / Bold */
+}
+
+h1 {
+    font-size: 46px; /* Títulos principales */
+}
+
+/* Subtítulos (pequeños) */
+.subtitle, .hero-subtitle, .section-title h2, .hero-breadcrumbs, .project-title {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--color-accent);
+}
+
+p, span, li, a, label {
+    font-weight: 300; /* Light */
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s ease; }
@@ -57,11 +82,10 @@ header.site-header {
     background: var(--color-white);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 
-    /* TRUCO: Sticky con Offset Negativo */
+    /* Header sticky que se queda fijo al hacer scroll */
     position: -webkit-sticky;
     position: sticky; 
-    /* Ocultamos la barra superior al hacer scroll */
-    top: calc(var(--top-bar-height) * -1); 
+    top: 0; 
 }
 
 /* =========================================

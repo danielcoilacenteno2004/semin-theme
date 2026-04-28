@@ -4,7 +4,7 @@
 
 /* --- Base --- */
 .servicios-master img { max-width: 100%; height: auto; display: block; }
-.servicios-master .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+.servicios-master .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
 
 /* --- Hero Section --- */
 .hero-master {
@@ -34,26 +34,38 @@
     gap: 0;
     margin-top: 60px; 
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 /* Tarjeta "Master" */
 .master-card { position: relative; height: 450px; overflow: hidden; }
-.master-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.master-card img { width: 100%; height: 100%; object-fit: cover; }
 
 .master-overlay {
     position: absolute; bottom: 0; left: 0; width: 100%;
     background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
     padding: 40px 30px; color: white;
     height: 100%; display: flex; flex-direction: column; justify-content: flex-end; text-align: left;
-    transition: 0.3s;
 }
 
-.master-card:hover img { transform: scale(1.1); }
-.master-card:hover .master-overlay { background: rgba(0,0,0,0.95); }
-
-.card-num { font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.1); position: absolute; top: 20px; right: 20px; }
+.card-num { display: none; }
 .master-card h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; color: white; }
-.master-btn { display: inline-block; color: #00a8e8; font-weight: 700; text-transform: uppercase; text-decoration: none; margin-top: 20px; letter-spacing: 1px; }
+.master-btn { 
+    display: inline-block; 
+    color: #00a8e8; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    text-decoration: none; 
+    margin-top: 20px; 
+    letter-spacing: 1px; 
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.master-card:hover .master-btn { 
+    border-bottom-color: #00a8e8; 
+}
 
 /* --- Capacidades (Taller) --- */
 .capabilities-section { padding: 100px 0; background: #fff; }
