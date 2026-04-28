@@ -10,6 +10,25 @@
 }
 .hero-title { font-size: 3rem; font-weight: 800; color: white; margin-bottom: 10px; }
 
+/* Breadcrumbs blancos en hero */
+.hero-proyectos .breadcrumbs {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.hero-proyectos .breadcrumbs a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.hero-proyectos .breadcrumbs a:hover {
+    color: white;
+}
+.hero-proyectos .breadcrumbs .sep {
+    color: white;
+    margin: 0 10px;
+}
+
 /* --- GRID PRINCIPAL --- */
 .gallery-section { padding: 80px 0; background: #f4f8fb; }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }

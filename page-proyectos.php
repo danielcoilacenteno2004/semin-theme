@@ -12,8 +12,8 @@ $hero_bg = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Imagen destacada
         <div class="hero-overlay">
             <div class="container hero-content">
                 <h1 class="hero-title">Portafolio de Proyectos</h1>
-                <div class="hero-breadcrumbs">
-                    <a href="<?php echo home_url(); ?>">Inicio</a> <span style="color:#00a8e8; margin:0 10px;">></span> Proyectos
+                <div class="breadcrumbs">
+                    <a href="<?php echo home_url(); ?>">Inicio</a> <span class="sep">></span> <span>Proyectos</span>
                 </div>
             </div>
         </div>

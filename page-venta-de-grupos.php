@@ -16,8 +16,10 @@ $brochure_title = get_theme_mod('semin_brochure_title', 'Catálogo General 2026'
     <section class="hero-grupos" style="background-image: url('<?php echo esc_url($hero_bg); ?>');">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1><?php the_title(); ?></h1>
-            <p class="hero-subtitle">Potencia y Respaldo para la Industria</p>
+            <h1 class="hero-title"><?php the_title(); ?></h1>
+            <div class="breadcrumbs">
+                <a href="<?php echo home_url(); ?>">Inicio</a> <span class="sep">></span> <span>Venta de Grupos</span>
+            </div>
         </div>
     </section>
 
