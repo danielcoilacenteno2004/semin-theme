@@ -35,24 +35,6 @@ $brochure_title = get_theme_mod('semin_brochure_title', 'Catálogo General 2026'
                     ?>
                 </div>
 
-                <div class="benefits-sidebar">
-                    <div class="benefit-card">
-                        <i class="fas fa-certificate"></i>
-                        <h4>Garantía Real</h4>
-                        <p>Equipos originales con respaldo de fábrica.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-shipping-fast"></i>
-                        <h4>Entrega Inmediata</h4>
-                        <p>Stock disponible en Arequipa y Lima.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-tools"></i>
-                        <h4>Soporte Técnico</h4>
-                        <p>Mantenimiento y repuestos asegurados.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
