@@ -15,7 +15,7 @@
 .logos-section h3 { color: #8899a6; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 40px; position: relative; display: inline-block; }
 .logos-section h3::after { content: ''; display: block; width: 40px; height: 3px; background: #00a8e8; margin: 10px auto 0; }
 .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 70px; }
-.logo-item img { max-height: 55px; max-width: 180px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.4s ease; }
+.logo-item img { max-height: 55px; max-width: 180px; width: auto; object-fit: contain; transition: all 0.4s ease; }
 .logo-item img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
 /* --- INTRODUCCIÓN --- */
@@ -156,7 +156,7 @@
 .cta-section h2 { margin-bottom: 10px; }
 .cta-section p { margin-bottom: 30px; opacity: 0.8; }
 .btn-large { background: #fff; color: #003366; padding: 15px 40px; font-size: 1.1rem; border: none; }
-.btn-large:hover { background: #00a8e8; color: #fff; transform: scale(1.05); }
+.btn-large:hover { background: #25d366; color: #fff; transform: scale(1.05); }
 
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.2rem; }
