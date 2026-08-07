@@ -84,22 +84,21 @@ img { max-width: 100%; height: auto; display: block; }
 header.site-header { 
     width: 100%; 
     z-index: 1000; 
-    background: var(--color-white);
-    border-bottom: 1px solid #eee;
-
-    /* Header sticky que se queda fijo al hacer scroll */
-    position: -webkit-sticky;
-    position: sticky; 
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    position: absolute;
     top: 0; 
+    left: 0;
 }
 
 /* =========================================
    B. BARRA SUPERIOR (Top Bar) - CORREGIDO V2
    ========================================= */
 .top-bar { 
-    background-color: var(--color-white); 
+    background-color: transparent !important; 
     height: 46px; 
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
     width: 100%;
     z-index: 1001; /* Asegura que esté encima */
     position: relative;
@@ -127,7 +126,7 @@ header.site-header {
 }
 
 .contact-item { 
-    color: var(--color-primary); /* Color Azul Oscuro por defecto (Texto) */
+    color: #ffffff !important; /* Texto blanco en header transparente */
     font-size: 0.9rem;
     font-weight: 600; 
     display: flex; 
@@ -135,23 +134,18 @@ header.site-header {
     gap: 8px; 
     text-decoration: none;
     line-height: 1;
-    transition: all 0.3s ease; /* Suaviza el cambio de color */
+    transition: all 0.3s ease;
 }
 
-/* EL CAMBIO CLAVE AQUÍ: */
-/* El ícono hereda el color del padre (Azul Oscuro), no se fuerza a celeste */
 .contact-item i { 
-    color: inherit; /* Hereda el color del texto */
+    color: inherit;
     font-size: 1.1em;
-    transition: inherit; /* Se mueve junto con el texto */
+    transition: inherit;
 }
 
-/* EFECTO HOVER (Al pasar el mouse) */
 .contact-item:hover { 
-    color: var(--color-accent); /* Texto cambia a Celeste */
+    color: var(--color-accent) !important;
 }
-
-/* El ícono cambia automáticamente porque tiene color: inherit */
 
 /* --- GRUPO DERECHO: REDES --- */
 .top-right-group {
@@ -159,18 +153,18 @@ header.site-header {
     align-items: center;
     gap: 15px;
     padding-left: 20px;
-    border-left: 1px solid #eee; /* Línea separadora */
-    height: 24px; /* Altura de la línea */
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    height: 24px;
 }
 
 .social-icon {
-    color: #888; 
+    color: rgba(255, 255, 255, 0.8) !important; 
     font-size: 1rem;
     display: flex;
     align-items: center;
     transition: 0.3s;
 }
-.social-icon:hover { color: var(--color-primary); }
+.social-icon:hover { color: #ffffff !important; }
 
 /* --- RESPONSIVE (Móvil) --- */
 @media (max-width: 900px) {
@@ -179,7 +173,6 @@ header.site-header {
     .top-left-group { flex-direction: column; gap: 8px; }
     .top-right-group { border-left: none; padding-left: 0; margin-top: 5px; }
 
-    /* Header principal: centrar y apilar cuando sea necesario */
     .main-header-content { justify-content: center; gap: 12px; }
     .main-header-content .main-nav { order: 2; width: 100%; }
     .main-header-content .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
@@ -188,7 +181,7 @@ header.site-header {
 
 /* C. HEADER PRINCIPAL (Menú + Logo) */
 .main-header { 
-    background: var(--color-white); 
+    background: transparent !important; 
     padding: 15px 0; 
 }
 
@@ -205,13 +198,13 @@ header.site-header {
     display: flex;
     align-items: center;
     gap: 18px;
-    margin-left: 24px; /* Separador visual entre menú y redes */
+    margin-left: 24px;
     padding-left: 24px;
-    border-left: 1px solid rgba(0,0,0,0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .icon-link {
-    color: var(--color-primary);
+    color: #ffffff !important;
     font-size: 1.2rem;
     display: inline-flex;
     align-items: center;
@@ -222,8 +215,8 @@ header.site-header {
 }
 
 .icon-link:hover {
-    background: rgba(0, 51, 102, 0.08);
-    color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: var(--color-accent) !important;
 }
 
 /* Utilidad accesible para texto oculto visualmente */
@@ -248,13 +241,13 @@ header.site-header {
 
 /* E. NAVEGACIÓN */
 .main-nav {
-    margin-left: auto; /* Empuja el menú hacia la derecha */
+    margin-left: auto;
 }
 .main-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; }
 
 .main-nav a { 
     font-weight: 700; 
-    color: #444; 
+    color: rgba(255, 255, 255, 0.95) !important; 
     text-transform: uppercase; 
     font-size: 0.85rem; 
     letter-spacing: 0.5px; 
@@ -264,8 +257,8 @@ header.site-header {
 
 .main-nav a:hover, 
 .main-nav a.active { 
-    color: var(--color-primary); 
-    border-bottom-color: var(--color-accent); 
+    color: var(--color-accent) !important; 
+    border-bottom-color: var(--color-accent) !important; 
 }
 
 /* =========================================
@@ -331,15 +324,29 @@ footer {
    ========================================= */
 @media (max-width: 991px) {
     
-    /* Desactivar Sticky en móvil para ganar espacio */
-    header.site-header { position: relative; top: 0; }
+    header.site-header { 
+        position: absolute; 
+        top: 0; 
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
 
-    .mobile-menu-toggle { display: block; }
+    .mobile-menu-toggle { 
+        display: block; 
+        color: #ffffff !important;
+    }
 
     /* Barra Superior apilada */
     .top-bar { height: auto; padding: 10px 0; }
-    .top-bar-content { flex-direction: column; gap: 10px; }
-    .top-social-group { border-left: none; padding-left: 0; }
+    .top-bar-content { flex-direction: column !important; gap: 10px; }
+    .top-left-group { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 15px; 
+    }
+    .top-right-group { border-left: none; padding-left: 0; margin-top: 5px; }
     
     /* Header Principal */
     .main-header { padding: 12px 0; }
@@ -349,15 +356,23 @@ footer {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        position: relative;
     }
 
+    /* DESPLEGABLE DE MENÚ CON FONDO BLANCO SÓLIDO */
     .main-nav {
         display: none;
         width: 100%;
         margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid #eee;
+        padding: 20px;
+        background: #ffffff !important;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        position: relative;
+        z-index: 1010;
     }
+    
     .main-nav.is-open {
         display: block;
     }
@@ -367,6 +382,20 @@ footer {
         gap: 12px; 
         align-items: center; 
         text-align: center;
+    }
+
+    /* Textos legibles en azul oscuro dentro del menú desplegable blanco */
+    .main-nav a { 
+        color: #003366 !important;
+        font-weight: 700;
+        display: block;
+        padding: 8px 0;
+    }
+
+    .main-nav a:hover, 
+    .main-nav a.active { 
+        color: #00a8e8 !important;
+        border-bottom-color: #00a8e8 !important;
     }
 
     .header-icons {

@@ -1,8 +1,95 @@
+/* --- TRANSPARENT HEADER PARA HOME PAGE --- */
+.home header.site-header,
+.front-page header.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    z-index: 1000;
+}
+
+.home .top-bar,
+.front-page .top-bar {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.home .contact-item,
+.front-page .contact-item {
+    color: #ffffff !important;
+}
+
+.home .contact-item:hover,
+.front-page .contact-item:hover {
+    color: #00a8e8 !important;
+}
+
+.home .social-icon,
+.front-page .social-icon {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.home .social-icon:hover,
+.front-page .social-icon:hover {
+    color: #ffffff !important;
+}
+
+.home .main-header,
+.front-page .main-header {
+    background: transparent !important;
+}
+
+.home .main-nav a,
+.front-page .main-nav a {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.home .main-nav a:hover,
+.home .main-nav a.active,
+.front-page .main-nav a:hover,
+.front-page .main-nav a.active {
+    color: #00a8e8;
+    border-bottom-color: #00a8e8;
+}
+
+.home .icon-link,
+.front-page .icon-link {
+    color: #ffffff;
+}
+
+.home .icon-link:hover,
+.front-page .icon-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #00a8e8;
+}
+
+.home .header-icons,
+.front-page .header-icons {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home .mobile-menu-toggle,
+.front-page .mobile-menu-toggle {
+    color: #ffffff;
+}
+
 /* --- HERO SECTION --- */
 .hero-section {
-    background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important;
-    color: #fff; padding: 0 5%; min-height: 80vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    background-size: cover !important; 
+    background-position: center !important; 
+    background-repeat: no-repeat !important;
+    color: #fff; 
+    padding: 140px 5% 80px; 
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    box-sizing: border-box;
 }
 .hero-content { width: 100%; max-width: 900px; }
 .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }

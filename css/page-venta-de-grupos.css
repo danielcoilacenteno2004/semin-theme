@@ -1,12 +1,14 @@
 /* --- HERO SECTION --- */
 .hero-grupos {
     position: relative;
-    height: 400px;
+    padding: 180px 0 80px;
+    min-height: 350px;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     color: #fff;
+    box-sizing: border-box;
 }
 
 .hero-overlay {
