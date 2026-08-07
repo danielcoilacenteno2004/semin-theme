@@ -46,11 +46,6 @@
                 </ul>
 
                 <div class="header-icons">
-                    <a href="<?php echo esc_url($email_link); ?>" class="icon-link" aria-label="Enviar correo">
-                        <i class="fas fa-envelope"></i>
-                        <span class="sr-only"><?php echo esc_html($email_txt); ?></span>
-                    </a>
-
                     <a href="<?php echo esc_url($phone_link); ?>" class="icon-link" aria-label="WhatsApp" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                         <span class="sr-only"><?php echo esc_html($phone_txt); ?></span>
