@@ -23,7 +23,7 @@
 
 /* --- Intro & Grid Layout --- */
 .intro-section { padding: 80px 0; text-align: center; }
-.section-head h2 { font-size: 2.5rem; color: #003366; font-weight: 800; margin-bottom: 15px; }
+.section-head h2 { font-size: 2rem; color: #003366; font-weight: 700; margin-bottom: 15px; }
 .section-head p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
 .divider { width: 80px; height: 4px; background: #00a8e8; margin: 20px auto; }
 
@@ -67,17 +67,19 @@
 }
 
 .service-card-body {
-    padding: 30px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .service-card-body h3 { 
-    font-size: 1.4rem; 
-    margin: 0 0 12px 0;
-    font-weight: 800; 
+    font-size: 1.15rem; 
+    margin: 0 0 10px 0;
+    font-weight: 700; 
     color: #003366;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
 }
 
 .service-card-desc {
