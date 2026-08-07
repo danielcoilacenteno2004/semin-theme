@@ -100,32 +100,28 @@
 .rombo-item p { color: #666; font-size: 0.9rem; line-height: 1.6; }
 
 /* --- SECCIÓN CLIENTES --- */
-.clientes-nosotros { background: #f9fafb; }
+.clientes-nosotros { background: #ffffff !important; }
 
 .clientes-grid-nosotros {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 
 .cliente-card-nosotros {
-    background: white;
-    border-radius: 12px;
-    padding: 30px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 150px;
     height: 150px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    box-sizing: border-box;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
 }
 
 .cliente-card-nosotros:hover {
-    border-color: #00a8e8;
-    box-shadow: 0 8px 25px rgba(0, 168, 232, 0.15);
     transform: translateY(-5px);
 }
 
@@ -169,13 +165,14 @@
     
     .grid-modasa-historia { grid-template-columns: 1fr; gap: 40px; }
     .grid-rombos { grid-template-columns: 1fr 1fr; gap: 50px; }
-    .clientes-grid-nosotros { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 20px; }
+    .clientes-grid-nosotros { gap: 20px; }
+    .cliente-card-nosotros { width: 130px; }
 }
 
 @media (max-width: 600px) {
     .grid-rombos { grid-template-columns: 1fr; }
     .hero-title { font-size: 2rem; }
     .historia-imagen { order: -1; margin-bottom: 20px; }
-    .clientes-grid-nosotros { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; }
-    .cliente-card-nosotros { height: 120px; padding: 20px 15px; }
+    .clientes-grid-nosotros { gap: 15px; }
+    .cliente-card-nosotros { width: 100px; height: 120px; }
 }

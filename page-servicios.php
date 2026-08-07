@@ -47,7 +47,6 @@ $img_powergy = get_theme_mod('semin_img_powergy', get_template_directory_uri() .
                     <article class="master-card-simple">
 
                         <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
-                        <a href="<?php echo home_url('/contacto'); ?>" class="master-btn-simple">Cotizar Servicio &rarr;</a>
                     </article>
 
                 <?php 

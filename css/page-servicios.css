@@ -62,7 +62,7 @@
     color: #666;
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .master-btn-simple { 
@@ -86,14 +86,7 @@
 .master-overlay { display: none; }
 .card-num { display: none; }
 .master-btn { display: none; }
-    letter-spacing: 1px; 
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
-}
 
-.master-card:hover .master-btn { 
-    border-bottom-color: #00a8e8; 
-}
 
 /* --- Capacidades (Taller) --- */
 .capabilities-section { padding: 100px 0; background: #fff; }

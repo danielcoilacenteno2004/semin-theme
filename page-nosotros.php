@@ -108,17 +108,16 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
                 <?php 
                 $clientes = get_theme_mod('semin_clientes_nosotros', array());
                 
+                // Si Customizer guardó los datos como string JSON, lo decodificamos
+                if (is_string($clientes)) {
+                    $clientes = json_decode(wp_unslash($clientes), true);
+                }
+                
                 if (!empty($clientes) && is_array($clientes)) {
                     foreach ($clientes as $cliente) {
-                        if (!empty($cliente['nombre'])) {
+                        if (!empty($cliente['logo'])) {
                             echo '<div class="cliente-card-nosotros">';
-                            
-                            if (!empty($cliente['logo'])) {
-                                echo '<img src="' . esc_url($cliente['logo']) . '" alt="' . esc_attr($cliente['nombre']) . '" class="cliente-logo-nosotros">';
-                            } else {
-                                echo '<div class="cliente-placeholder-nosotros">' . esc_html(substr($cliente['nombre'], 0, 2)) . '</div>';
-                            }
-                            
+                            echo '<img src="' . esc_url($cliente['logo']) . '" alt="Cliente" class="cliente-logo-nosotros">';
                             echo '</div>';
                         }
                     }

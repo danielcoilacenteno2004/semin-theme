@@ -69,6 +69,9 @@ if (!class_exists('Semin_Clientes_Repeater_Control')) {
             <div class="semin-clientes-repeater-container">
                 <?php
                 $clientes = get_theme_mod('semin_clientes_nosotros', array());
+                if (is_string($clientes)) {
+                    $clientes = json_decode(wp_unslash($clientes), true);
+                }
                 if (!is_array($clientes)) {
                     $clientes = array();
                 }
@@ -111,7 +114,6 @@ if (!class_exists('Semin_Clientes_Repeater_Control')) {
                     var newIndex = $('.semin-cliente-item').length;
                     var newItem = `
                         <div class="semin-cliente-item">
-                            <input type="text" class="cliente-nombre" placeholder="Nombre del cliente" value="">
                             <button type="button" class="button semin-upload-logo" data-index="${newIndex}">
                                 Cargar Logo
                             </button>
@@ -164,13 +166,11 @@ if (!class_exists('Semin_Clientes_Repeater_Control')) {
                     var clientes = [];
                     $('.semin-cliente-item').each(function() {
                         clientes.push({
-                            nombre: $(this).find('.cliente-nombre').val(),
                             logo: $(this).find('.cliente-logo').val(),
                         });
                     });
-                    
                     wp.customize('semin_clientes_nosotros', function(obj) {
-                        obj.set(clientes);
+                        obj.set(JSON.stringify(clientes));
                     });
                 }
             });
@@ -185,7 +185,6 @@ if (!class_exists('Semin_Clientes_Repeater_Control')) {
 
             return "
                 <div class='semin-cliente-item'>
-                    <input type='text' class='cliente-nombre' placeholder='Nombre del cliente' value='{$nombre}'>
                     <button type='button' class='button semin-upload-logo' data-index='{$index}'>
                         Cargar Logo
                     </button>
@@ -204,6 +203,10 @@ if (!class_exists('Semin_Clientes_Repeater_Control')) {
  * Sanitizar array de clientes
  */
 function semin_sanitize_clientes_array($value) {
+    if (is_string($value)) {
+        $value = json_decode(wp_unslash($value), true);
+    }
+    
     if (!is_array($value)) {
         return array();
     }
@@ -212,7 +215,6 @@ function semin_sanitize_clientes_array($value) {
     foreach ($value as $cliente) {
         if (is_array($cliente)) {
             $sanitized[] = array(
-                'nombre' => sanitize_text_field($cliente['nombre'] ?? ''),
                 'logo'   => esc_url_raw($cliente['logo'] ?? ''),
             );
         }
