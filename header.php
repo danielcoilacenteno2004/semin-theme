@@ -44,6 +44,30 @@
                     <li><a href="<?php echo home_url('/venta-de-grupos'); ?>" class="<?php echo is_page('venta-de-grupos') ? 'active' : ''; ?>">Venta de Grupos</a></li>
                     <li><a href="<?php echo home_url('/contacto'); ?>" class="<?php echo is_page('contacto') ? 'active' : ''; ?>">Contacto</a></li>
                 </ul>
+
+                <div class="header-icons">
+                    <a href="<?php echo esc_url($email_link); ?>" class="icon-link" aria-label="Enviar correo">
+                        <i class="fas fa-envelope"></i>
+                        <span class="sr-only"><?php echo esc_html($email_txt); ?></span>
+                    </a>
+
+                    <a href="<?php echo esc_url($phone_link); ?>" class="icon-link" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="sr-only"><?php echo esc_html($phone_txt); ?></span>
+                    </a>
+
+                    <?php if ( !empty($fb_url) && $fb_url !== '#' ) : ?>
+                        <a href="<?php echo esc_url($fb_url); ?>" target="_blank" class="icon-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    <?php endif; ?>
+
+                    <?php if ( !empty($li_url) && $li_url !== '#' ) : ?>
+                        <a href="<?php echo esc_url($li_url); ?>" target="_blank" class="icon-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    <?php endif; ?>
+                </div>
             </nav>
 
             <script>
@@ -62,30 +86,6 @@
                 }
             });
             </script>
-
-            <div class="header-icons">
-                <a href="<?php echo esc_url($email_link); ?>" class="icon-link" aria-label="Enviar correo">
-                    <i class="fas fa-envelope"></i>
-                    <span class="sr-only"><?php echo esc_html($email_txt); ?></span>
-                </a>
-
-                <a href="<?php echo esc_url($phone_link); ?>" class="icon-link" aria-label="WhatsApp" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="sr-only"><?php echo esc_html($phone_txt); ?></span>
-                </a>
-
-                <?php if ( !empty($fb_url) && $fb_url !== '#' ) : ?>
-                    <a href="<?php echo esc_url($fb_url); ?>" target="_blank" class="icon-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                <?php endif; ?>
-
-                <?php if ( !empty($li_url) && $li_url !== '#' ) : ?>
-                    <a href="<?php echo esc_url($li_url); ?>" target="_blank" class="icon-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                <?php endif; ?>
-            </div>
         </div>
     </div>
 </header>

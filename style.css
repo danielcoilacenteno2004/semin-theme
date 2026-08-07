@@ -242,6 +242,8 @@ header.site-header {
 /* E. NAVEGACIÓN */
 .main-nav {
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 .main-nav ul { display: flex; gap: 30px; margin: 0; padding: 0; }
 
@@ -402,9 +404,20 @@ footer {
         margin-top: 15px;
         margin-left: 0;
         padding-left: 0;
+        padding-top: 15px;
         border-left: none;
+        border-top: 1px solid #eee;
         justify-content: center;
         width: 100%;
+    }
+
+    .main-nav .icon-link {
+        color: #003366 !important;
+    }
+
+    .main-nav .icon-link:hover {
+        background: rgba(0, 51, 102, 0.08) !important;
+        color: #00a8e8 !important;
     }
 
     h1 { font-size: 2.2rem; }
