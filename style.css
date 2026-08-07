@@ -29,6 +29,11 @@ Version: 1.1
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body { 
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 300; /* Light */
@@ -309,6 +314,18 @@ footer {
 .section-title hr { width: 60px; height: 4px; background: var(--color-accent); margin: 0 auto; border: none; border-radius: 2px; }
 
 
+/* Botón menú móvil */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+}
+
 /* =========================================
    5. RESPONSIVE (MÓVIL)
    ========================================= */
@@ -317,20 +334,50 @@ footer {
     /* Desactivar Sticky en móvil para ganar espacio */
     header.site-header { position: relative; top: 0; }
 
+    .mobile-menu-toggle { display: block; }
+
     /* Barra Superior apilada */
     .top-bar { height: auto; padding: 10px 0; }
     .top-bar-content { flex-direction: column; gap: 10px; }
     .top-social-group { border-left: none; padding-left: 0; }
     
     /* Header Principal */
-    .main-header { padding: 15px 0; }
-    .main-header-content { flex-direction: column; gap: 20px; }
+    .main-header { padding: 12px 0; }
+    .main-header-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+    .main-nav.is-open {
+        display: block;
+    }
     
-    /* Menú en móvil (Básico - Idealmente usarías JS para un menú hamburguesa) */
     .main-nav ul { 
         flex-direction: column; 
-        gap: 15px; 
+        gap: 12px; 
         align-items: center; 
         text-align: center;
     }
+
+    .header-icons {
+        margin-top: 15px;
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    h1 { font-size: 2.2rem; }
+    .container { padding: 0 15px; }
 }

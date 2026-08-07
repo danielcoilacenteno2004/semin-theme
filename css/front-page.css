@@ -159,7 +159,19 @@
 .btn-large:hover { background: #25d366; color: #fff; transform: scale(1.05); }
 
 @media (max-width: 768px) {
+    .hero-section { min-height: 60vh; padding: 60px 15px; }
     .hero-content h1 { font-size: 2.2rem; }
-    .intro-grid { flex-direction: column; }
-    .logos-grid { gap: 30px; }
+    .hero-content p { font-size: 1.05rem; margin-bottom: 25px; }
+    .intro-grid { flex-direction: column; gap: 30px; }
+    .intro-section { padding: 50px 0; }
+    .intro-text h2 { font-size: 1.7rem; }
+    .logos-section { padding: 40px 0; }
+    .logos-grid { gap: 20px 30px; }
+    .logo-item img { max-height: 40px; }
+    .cummins-banner-wrapper { min-height: 350px; }
+    .cummins-banner-content { padding: 40px 20px; }
+    .cummins-banner-content h2 { font-size: 1.5rem; }
+    .cummins-banner-content p { font-size: 0.95rem; }
+    .services-banner-section { padding: 50px 0; }
+    .cta-section { padding: 40px 15px; }
 }

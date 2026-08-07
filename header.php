@@ -31,6 +31,10 @@
                 ?>
             </div>
             
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav class="main-nav">
                 <ul>
                     <li><a href="<?php echo home_url(); ?>" class="<?php echo is_front_page() ? 'active' : ''; ?>">Inicio</a></li>
@@ -41,6 +45,23 @@
                     <li><a href="<?php echo home_url('/contacto'); ?>" class="<?php echo is_page('contacto') ? 'active' : ''; ?>">Contacto</a></li>
                 </ul>
             </nav>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var btn = document.querySelector('.mobile-menu-toggle');
+                var nav = document.querySelector('.main-nav');
+                if (btn && nav) {
+                    btn.addEventListener('click', function() {
+                        nav.classList.toggle('is-open');
+                        var icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('fa-bars');
+                            icon.classList.toggle('fa-times');
+                        }
+                    });
+                }
+            });
+            </script>
 
             <div class="header-icons">
                 <a href="<?php echo esc_url($email_link); ?>" class="icon-link" aria-label="Enviar correo">

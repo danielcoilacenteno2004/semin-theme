@@ -168,9 +168,17 @@
 }
 
 @media (max-width: 600px) {
-    .grid-rombos { grid-template-columns: 1fr; }
+    .page-hero-pro { padding: 90px 0 50px; }
     .hero-title { font-size: 2rem; }
+    .section-pro { padding: 40px 0; }
+    .modasa-title { font-size: 1.8rem; }
     .historia-imagen { order: -1; margin-bottom: 20px; }
+    .split-image { height: 260px; }
+    .split-content { padding: 40px 20px !important; }
+    .floating-card { padding: 25px 20px; width: 95%; margin: -40px auto 20px; }
+    .floating-card h3 { font-size: 1.3rem; }
+    .grid-rombos { grid-template-columns: 1fr; gap: 20px; }
+    .rombo-item { padding: 20px 10px; }
     .clientes-grid-nosotros { gap: 15px; }
-    .cliente-card-nosotros { width: 100px; height: 120px; }
+    .cliente-card-nosotros { width: 100px; height: 100px; }
 }
