@@ -16,7 +16,7 @@ Version: 1.1
     --color-primary: #003366;  /* Azul Semin Oscuro */
     --color-accent:  #00a8e8;  /* Cyan Semin */
     --color-text:    #333333;  /* Texto General */
-    --color-light:   #f4f8fb;  /* Fondos Suaves */
+    --color-light:   #ffffff;  /* Fondos Suaves */
     --color-white:   #ffffff;
     
     /* Dimensiones Estructurales */
@@ -80,7 +80,7 @@ header.site-header {
     width: 100%; 
     z-index: 1000; 
     background: var(--color-white);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #eee;
 
     /* Header sticky que se queda fijo al hacer scroll */
     position: -webkit-sticky;

@@ -60,13 +60,13 @@ function semin_scripts_modular() {
         );
     }
 
-    // C. CONTACTO (Nueva)
-    if ( is_page('contacto') || is_page_template('page-contacto.php') ) {
+    // D. PROYECTOS
+    if ( is_page('proyectos') || is_page_template('page-proyectos.php') || is_singular('proyecto') ) {
         wp_enqueue_style( 
-            'css-page-contacto', 
-            get_template_directory_uri() . '/css/page-contacto.css', 
+            'css-page-proyectos', 
+            get_template_directory_uri() . '/css/page-proyectos.css', 
             array('semin-global'), 
-            filemtime( get_template_directory() . '/css/page-contacto.css' ) 
+            filemtime( get_template_directory() . '/css/page-proyectos.css' ) 
         );
     }
 }
