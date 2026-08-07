@@ -16,7 +16,6 @@ $img_powergy = get_theme_mod('semin_img_powergy', get_template_directory_uri() .
     <section class="hero-master" style="background-image: url('<?php echo esc_url($hero_bg); ?>');">
         <div class="container hero-content">
             <h1 class="hero-title">Soluciones de Potencia <br> y Continuidad Operativa</h1>
-            <p class="hero-desc">Ingeniería especializada en Generación, Automatización y Mantenimiento para la gran minería e industria del sur del Perú.</p>
         </div>
     </section>
 
@@ -42,11 +41,26 @@ $img_powergy = get_theme_mod('semin_img_powergy', get_template_directory_uri() .
 
                 if ($servicios_query->have_posts()) :
                     while ($servicios_query->have_posts()) : $servicios_query->the_post();
+                        $img = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                        $desc = get_the_content();
+                        if (empty($desc)) {
+                            $desc = get_the_excerpt();
+                        }
                 ?>
                     
                     <article class="master-card-simple">
+                        <?php if ($img) : ?>
+                            <div class="service-card-img">
+                                <img src="<?php echo esc_url($img); ?>" alt="<?php the_title(); ?>">
+                            </div>
+                        <?php endif; ?>
 
-                        <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
+                        <div class="service-card-body">
+                            <h3><?php the_title(); ?></h3>
+                            <div class="service-card-desc">
+                                <?php echo apply_filters('the_content', $desc); ?>
+                            </div>
+                        </div>
                     </article>
 
                 <?php 

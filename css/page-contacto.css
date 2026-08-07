@@ -1,7 +1,7 @@
 /* --- HERO CONTACTO --- */
 .hero-contact {
     height: 350px; background-color: #003366; background-size: cover; background-position: center; position: relative;
-    display: flex; align-items: center; justify-content: center; text-align: center;
+    display: flex; align-items: center; justify-content: flex-start; text-align: left;
 }
 .hero-contact::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0, 0, 0, 0.75); }
 .hero-content { position: relative; z-index: 2; color: white; }

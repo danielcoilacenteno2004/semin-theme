@@ -17,13 +17,10 @@ $telefono_txt = get_theme_mod('contact_phone_text', '923 494 455');
 $email_txt    = get_theme_mod('contact_email_text', 'ventas@semin.pe');
 ?>
 
-<div class="page-header" style="background: #003366; color: white; padding: 100px 0 60px; text-align: center; position: relative;">
+<div class="page-header" style="background: #003366; color: white; padding: 100px 0 60px; text-align: left; position: relative;">
     <div class="page-header-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 0;"></div>
     <div class="container" style="position: relative; z-index: 1;">
-        <h1 class="hero-title" style="margin-bottom: 20px;"><?php echo esc_html($titulo); ?></h1>
-        <div class="breadcrumbs">
-            <a href="<?php echo home_url(); ?>">Inicio</a> <span class="sep">></span> <span>Contacto</span>
-        </div>
+        <h1 class="hero-title" style="margin-bottom: 0;"><?php echo esc_html($titulo); ?></h1>
     </div>
 </div>
 

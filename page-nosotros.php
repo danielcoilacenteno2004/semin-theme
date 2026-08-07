@@ -17,9 +17,6 @@ if (empty($img_inge)) $img_inge = 'https://via.placeholder.com/500x600?text=Sube
     <section class="page-hero-pro" style="background-image: url('<?php echo esc_url($hero_bg); ?>');">
         <div class="container hero-content">
             <h1 class="hero-title"><?php the_title(); ?></h1>
-            <div class="breadcrumbs">
-                <a href="<?php echo home_url(); ?>">Inicio</a> <span class="sep">></span> <span>Nosotros</span>
-            </div>
         </div>
     </section>
 
